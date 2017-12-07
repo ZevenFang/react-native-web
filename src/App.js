@@ -9,8 +9,9 @@ import {
   Platform,
   StyleSheet,
   Text,
-  View
+  View,
 } from 'react-native';
+import { Button } from 'antd-mobile';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
@@ -32,6 +33,7 @@ export default class App extends Component<{}> {
         <Text style={styles.instructions}>
           {instructions}
         </Text>
+        <Button>Great!</Button>
       </View>
     );
   }

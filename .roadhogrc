@@ -1,0 +1,17 @@
+{
+  "entry": "src/index.js",
+  "extraBabelPlugins": [
+    "transform-runtime",
+    ["import", { "libraryName": "antd-mobile", "style": true }]
+  ],
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr"
+      ]
+    },
+    "production": {
+      "extraBabelPlugins": []
+    }
+  }
+}
