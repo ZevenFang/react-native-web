@@ -1,8 +1,9 @@
 {
   "entry": "src/index.js",
   "extraBabelPlugins": [
+    "transform-decorators-legacy",
     "transform-runtime",
-    ["import", { "libraryName": "antd-mobile", "style": true }]
+    ["import", { "libraryName": "antd-mobile", "libraryDirectory": "es", "style": true }]
   ],
   "env": {
     "development": {
