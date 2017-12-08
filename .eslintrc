@@ -1,6 +1,9 @@
 {
   "parser": "babel-eslint",
   "extends": "airbnb",
+  "globals": {
+    "window": true
+  },
   "rules": {
     "arrow-body-style": [0],
     "consistent-return": [0],

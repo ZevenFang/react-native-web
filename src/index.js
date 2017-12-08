@@ -1,6 +1,8 @@
 import dva from 'dva';
 import './index.css';
 
+window.platform = window.platform || 'web';
+
 // 1. Initialize
 const app = dva();
 
