@@ -27,7 +27,8 @@
     "react/prefer-stateless-function": [0],
     "react/prop-types": [0],
     "require-yield": [1],
-    "linebreak-style": "off"
+    "linebreak-style": [0],
+    "func-names": [0]
   },
   "parserOptions": {
     "ecmaFeatures": {

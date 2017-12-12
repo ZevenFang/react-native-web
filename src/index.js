@@ -1,19 +1,10 @@
 import dva from 'dva';
+import models from './models';
+import router from './router';
 import './index.css';
 
-window.platform = window.platform || 'web';
-
-// 1. Initialize
 const app = dva();
+models.map(m => app.model(m));
 
-// 2. Plugins
-// app.use({});
-
-// 3. Model
-// app.model(require('./models/example'));
-
-// 4. Router
-app.router(require('./router'));
-
-// 5. Start
+app.router(router);
 app.start('#root');

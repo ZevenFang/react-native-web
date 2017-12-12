@@ -18,9 +18,12 @@
     "antd-mobile": "^2.1.1",
     "babel-runtime": "^6.9.2",
     "dva": "^2.1.0",
+    "dva-core": "^1.1.0",
     "react": "16.0.0",
     "react-dom": "16.0.0",
-    "react-native": "0.51.0"
+    "react-native": "0.51.0",
+    "react-navigation": "^1.0.0-beta.21",
+    "react-redux": "^5.0.6"
   },
   "devDependencies": {
     "babel-eslint": "^7.1.1",
