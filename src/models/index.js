@@ -1,3 +1,3 @@
-import example from './example';
+import todo from './todo';
 
-export default [example];
+export default [todo];

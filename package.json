@@ -19,6 +19,7 @@
     "babel-runtime": "^6.9.2",
     "dva": "^2.1.0",
     "dva-core": "^1.1.0",
+    "rc-form": "^2.1.5",
     "react": "16.0.0",
     "react-dom": "16.0.0",
     "react-native": "0.51.0",
