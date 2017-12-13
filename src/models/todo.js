@@ -1,7 +1,12 @@
 export default {
   namespace: 'todo',
   state: {
-    data: [],
+    data: [
+      { text: 'Hello', completed: false },
+      { text: 'World', completed: false },
+      { text: 'React', completed: false },
+      { text: 'Mobile', completed: false },
+    ],
   },
   reducers: {
     add(state, { text }) {

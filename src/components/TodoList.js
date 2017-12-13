@@ -1,9 +1,11 @@
 import React from 'react';
-import { List, InputItem, Icon, Toast } from 'antd-mobile';
+import { List, InputItem, Icon, Toast, Checkbox } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import { connect } from 'react-redux';
-import TodoItem from './TodoItem';
+import TodoText from './TodoText';
 import { firstError } from '../utils/rcform';
+
+const CheckboxItem = Checkbox.CheckboxItem;
 
 @connect(({ todo }) => ({ todo }))
 class TodoList extends React.Component {
@@ -19,6 +21,18 @@ class TodoList extends React.Component {
         });
         form.resetFields(['task']);
       }
+    });
+  };
+
+  onComplete = async (id) => {
+    await this.props.dispatch({
+      type: 'todo/check', id,
+    });
+  };
+
+  onDelete = async (id) => {
+    await this.props.dispatch({
+      type: 'todo/del', id,
     });
   };
 
@@ -39,7 +53,14 @@ class TodoList extends React.Component {
           labelNumber={3}
         >Todo</InputItem>
         {todo.data.map((v, k) => (
-          <TodoItem key={k} id={k} todo={v} />
+          <CheckboxItem
+            key={k} extra={<Icon type={'cross'} />}
+            checked={v.completed} wrap
+            onChange={() => this.onComplete(k)}
+            onExtraClick={() => this.onDelete(k)}
+          >
+            <TodoText {...v} />
+          </CheckboxItem>
         ))}
       </List>
     );
