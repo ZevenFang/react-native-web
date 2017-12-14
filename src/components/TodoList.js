@@ -63,7 +63,7 @@ class TodoList extends React.Component {
         {todo.data.map((v, k) => (
           <CheckboxItem
             key={k} extra={<Touch onClick={() => this.onDelete(k)} onPress={() => this.onDelete(k)}><Icon type={'cross'} /></Touch>}
-            checked={v.completed} wrap
+            checked={v.completed === true} wrap
             onChange={() => this.onComplete(k)}
           >
             <Text style={v.completed ? { textDecorationLine: 'line-through', color: '#aaa' } : {}}>{v.text}</Text>
