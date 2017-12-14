@@ -1,12 +1,25 @@
 import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
-import IndexPage from './routes/IndexPage';
+import dynamic from 'dva/dynamic';
 
-function RouterConfig({ history }) {
+function RouterConfig({ history, app }) {
+  const routes = [{
+    path: '/',
+    component: () => import('./routes/IndexPage'),
+  }];
   return (
     <Router history={history}>
       <Switch>
-        <Route path="/" exact component={IndexPage} />
+        {routes.map(({ path, ...dynamics }, key) => (
+          <Route
+            key={key}
+            exact
+            path={path}
+            component={dynamic({
+              app, ...dynamics,
+            })}
+          />
+        ))}
       </Switch>
     </Router>
   );
