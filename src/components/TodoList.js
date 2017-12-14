@@ -1,8 +1,9 @@
 import React from 'react';
-import { List, InputItem, Icon, Toast, Checkbox } from 'antd-mobile';
+import { List, InputItem, Icon, Toast, Checkbox, Modal } from 'antd-mobile';
 import { createForm } from 'rc-form';
 import { connect } from 'react-redux';
-import TodoText from './TodoText';
+import Touch from './Touch';
+import Text from './Text';
 import { firstError } from '../utils/rcform';
 
 const CheckboxItem = Checkbox.CheckboxItem;
@@ -30,10 +31,17 @@ class TodoList extends React.Component {
     });
   };
 
-  onDelete = async (id) => {
-    await this.props.dispatch({
-      type: 'todo/del', id,
-    });
+  onDelete = (id) => {
+    Modal.alert('Delete', 'Are you sure?', [
+      { text: 'Cancel' },
+      { text: 'OK',
+        onPress: () => {
+          this.props.dispatch({
+            type: 'todo/del', id,
+          });
+          Toast.success('Deleted!', 1);
+        } },
+    ]);
   };
 
   render() {
@@ -54,12 +62,11 @@ class TodoList extends React.Component {
         >Todo</InputItem>
         {todo.data.map((v, k) => (
           <CheckboxItem
-            key={k} extra={<Icon type={'cross'} />}
+            key={k} extra={<Touch onClick={() => this.onDelete(k)} onPress={() => this.onDelete(k)}><Icon type={'cross'} /></Touch>}
             checked={v.completed} wrap
             onChange={() => this.onComplete(k)}
-            onExtraClick={() => this.onDelete(k)}
           >
-            <TodoText {...v} />
+            <Text style={v.completed ? { textDecorationLine: 'line-through', color: '#aaa' } : {}}>{v.text}</Text>
           </CheckboxItem>
         ))}
       </List>

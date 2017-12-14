@@ -10,7 +10,7 @@ export default {
   },
   reducers: {
     add(state, { text }) {
-      state.data.push({ text, complete: false });
+      state.data.unshift({ text, complete: false });
       return { ...state };
     },
     del(state, { id }) {
