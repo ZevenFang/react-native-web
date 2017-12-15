@@ -2,8 +2,7 @@
   "parser": "babel-eslint",
   "extends": "airbnb",
   "globals": {
-    "window": true,
-    "it": true
+    "window": true
   },
   "rules": {
     "arrow-body-style": [0],
