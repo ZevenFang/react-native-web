@@ -15,3 +15,18 @@ script:
   - npm run lint
   - npm run build
   - npm run apk
+after_script:
+  - cp release.apk ./dist
+  - cd ./dist
+  - git init
+  - git config user.name "zeven"  #修改name
+  - git config user.email "fangfan1997@126.com"  #修改email
+  - git add .
+  - git commit -m "update"
+  - git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages  #GH_TOKEN是在Travis中配置token的名称
+branches:
+  only:
+    - master
+env:
+ global:
+   - GH_REF: github.com/ZevenFang/react-native-web-dva-antd-mobile.git
