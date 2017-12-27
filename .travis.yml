@@ -1,5 +1,7 @@
 sudo: false
-language: android
+language:
+  - node_js
+  - android
 node_js:
   - 'stable'
 android:
