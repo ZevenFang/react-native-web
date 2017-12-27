@@ -1,17 +1,16 @@
 sudo: false
-language: android
+language: node_js
+node_js:
+  - stable
 android:
   components:
   - build-tools-23.0.1
   - android-23
   - extra-android-m2repository
   - extra-android-support
-before_install:
-  - curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.8/install.sh | bash
-  - nvm install stable
 install:
   - npm install
 script:
   - npm run lint
   - npm run build
-  - npm run android
+  - npm run apk
