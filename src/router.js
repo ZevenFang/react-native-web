@@ -12,9 +12,7 @@ function RouterConfig({ history, app }) {
       <Switch>
         {routes.map(({ path, ...dynamics }, key) => (
           <Route
-            key={key}
-            exact
-            path={path}
+            key={key} exact path={path}
             component={dynamic({
               app, ...dynamics,
             })}
