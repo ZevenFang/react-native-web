@@ -5,6 +5,8 @@
   "scripts": {
     "start": "node node_modules/react-native/local-cli/cli.js start",
     "android": "node node_modules/react-native/local-cli/cli.js run-android",
+    "apk": "cd android && ./gradlew assembleRelease && cp ./app/build/outputs/apk/app-release.apk ../release.apk",
+    "apk-w": "cd android && gradlew assembleRelease && copy app\\build\\outputs\\apk\\app-release.apk ..\\release.apk /y",
     "test": "jest",
     "web": "cross-env PORT=3001 roadhog server",
     "build": "roadhog build",

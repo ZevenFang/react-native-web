@@ -39,7 +39,8 @@ yarn-error.log
 # BUCK
 buck-out/
 \.buckd/
-*.keystore
+# *.keystore
+*.apk
 
 # fastlane
 #
@@ -51,3 +52,5 @@ buck-out/
 */fastlane/report.xml
 */fastlane/Preview.html
 */fastlane/screenshots
+
+dist/

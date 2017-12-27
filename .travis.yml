@@ -1,8 +1,16 @@
 sudo: false
-language: node_js
+language: android
 node_js:
   - 'stable'
+android:
+  components:
+  - build-tools-23.0.1
+  - android-23
+  - extra-android-m2repository
+  - extra-android-support
 install:
   - npm i npminstall && npminstall
 script:
   - npm run lint
+  - npm run build
+  - npm run android
