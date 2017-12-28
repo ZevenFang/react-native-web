@@ -11,6 +11,12 @@ const CheckboxItem = Checkbox.CheckboxItem;
 @connect(({ todo }) => ({ todo }))
 class TodoList extends React.Component {
 
+  componentDidMount() {
+    this.props.screenProps.stackNavigation.setParams({
+      title: 'Todos', drawerNavigation: this.props.navigation,
+    });
+  }
+
   onSave = () => {
     const { form, dispatch } = this.props;
     form.validateFields({ first: false }, async (error, value) => {

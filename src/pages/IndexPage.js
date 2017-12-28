@@ -1,22 +1,22 @@
 import React from 'react';
-import {
-  View,
-} from 'react-native';
-import { connect } from 'react-redux';
+import { DrawerNavigator } from 'react-navigation';
 import TodoList from '../components/TodoList';
+import Counter from '../components/Counter';
 
-@connect(({ todo }) => ({ todo }))
+const Drawer = DrawerNavigator({
+  Todo: {
+    screen: TodoList,
+  },
+  Counter: {
+    screen: Counter,
+  },
+});
+
 export default class IndexPage extends React.Component {
-
-  static navigationOptions = {
-    title: 'Todos',
-  };
 
   render() {
     return (
-      <View>
-        <TodoList />
-      </View>
+      <Drawer screenProps={{ stackNavigation: this.props.navigation }} />
     );
   }
 

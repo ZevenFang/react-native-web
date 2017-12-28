@@ -5,6 +5,12 @@ import { connect } from 'react-redux';
 @connect(({ counter }) => ({ counter }))
 export default class Counter extends React.Component {
 
+  componentDidMount() {
+    this.props.screenProps.stackNavigation.setParams({
+      title: 'Counter', drawerNavigation: this.props.navigation,
+    });
+  }
+
   onChange = (number) => {
     this.props.dispatch({
       type: 'counter/change',
@@ -23,7 +29,8 @@ export default class Counter extends React.Component {
 
   render() {
     const { counter } = this.props;
-    const stepperStyle = { width: '100%', minWidth: '100px' };
+    const stepperStyle = { width: '100%' };
+    if (!window.platform) stepperStyle.minWidth = '100px';
     return (
       <List renderHeader={() => 'Counter List'}>
         <List.Item
