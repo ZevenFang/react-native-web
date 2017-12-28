@@ -3,4 +3,4 @@ import App from './src/App';
 
 window.platform = Platform.OS;
 
-AppRegistry.registerComponent('ReactNativeWebDvaAntdMobile', () => App);
+AppRegistry.registerComponent('ReactNativeWeb', () => App);

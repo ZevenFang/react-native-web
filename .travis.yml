@@ -18,7 +18,7 @@ script:
 after_script:
   - cp release.apk ./dist
   - cd ./dist
-  - echo "react-native-web-dva-antd-mobile.zeven.vip" > CNAME
+  - echo "react-native-web.zeven.vip" > CNAME
   - git init
   - git config user.name "zeven"  #修改name
   - git config user.email "fangfan1997@126.com"  #修改email
@@ -30,4 +30,4 @@ branches:
     - master
 env:
  global:
-   - GH_REF: github.com/ZevenFang/react-native-web-dva-antd-mobile.git
+   - GH_REF: github.com/ZevenFang/react-native-web.git

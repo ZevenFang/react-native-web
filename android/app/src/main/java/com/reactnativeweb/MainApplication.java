@@ -1,4 +1,4 @@
-package com.reactnativewebdvaantdmobile;
+package com.reactnativeweb;
 
 import android.app.Application;
 
