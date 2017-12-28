@@ -6,9 +6,11 @@ import { connect } from 'react-redux';
 export default class Counter extends React.Component {
 
   componentDidMount() {
-    this.props.screenProps.stackNavigation.setParams({
-      title: 'Counter', drawerNavigation: this.props.navigation,
-    });
+    if (window.platform) { // 只在 ReactNative 中使用
+      this.props.screenProps.stackNavigation.setParams({
+        title: 'Counter', drawerNavigation: this.props.navigation,
+      });
+    }
   }
 
   onChange = (number) => {

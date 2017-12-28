@@ -5,12 +5,22 @@ import dynamic from 'dva/dynamic';
 import { connect } from 'react-redux';
 import styles from './IndexPage.less';
 
+const routes = [{
+  path: '/',
+  title: 'Todos',
+  component: () => import('../components/TodoList'),
+}, {
+  path: '/counter',
+  title: 'Counter',
+  component: () => import('../components/Counter'),
+}];
+
 @connect()
 export default class IndexPage extends React.Component {
 
   state = {
     open: false,
-    title: 'Todos',
+    title: routes.filter(v => v.path === this.props.location.pathname)[0].title,
   };
 
   onOpenChange = () => {
@@ -24,13 +34,6 @@ export default class IndexPage extends React.Component {
 
   render() {
     const { app } = this.props;
-    const routes = [{
-      path: '/',
-      component: () => import('../components/TodoList'),
-    }, {
-      path: '/counter',
-      component: () => import('../components/Counter'),
-    }];
     const sidebar = (
       <List>
         <List.Item onClick={() => this.onNavigate('/', 'Todos')}><Link to="/">Todos</Link></List.Item>

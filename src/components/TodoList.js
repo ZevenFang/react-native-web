@@ -12,9 +12,11 @@ const CheckboxItem = Checkbox.CheckboxItem;
 class TodoList extends React.Component {
 
   componentDidMount() {
-    this.props.screenProps.stackNavigation.setParams({
-      title: 'Todos', drawerNavigation: this.props.navigation,
-    });
+    if (window.platform) { // 只在 ReactNative 中使用
+      this.props.screenProps.stackNavigation.setParams({
+        title: 'Todos', drawerNavigation: this.props.navigation,
+      });
+    }
   }
 
   onSave = () => {
