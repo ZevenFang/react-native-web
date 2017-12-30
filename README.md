@@ -1,7 +1,7 @@
 # react-native-web
-Build react-native and web app with dva and antd-mobile.
+Build react-native and web app with [dva] and [antd-mobile].
 
-English | 中文文档
+English | [中文文档]
 
 ## Structure
 ```sh
@@ -55,3 +55,19 @@ function platform() {
   else return window.platform; // ios|android
 }
 ```
+## Preview
+
+### Web
+![](https://rawgit.com/ZevenFang/react-native-web/screen/web-todos.png)
+![](https://rawgit.com/ZevenFang/react-native-web/screen/web-counter.png)
+### Android
+![](https://rawgit.com/ZevenFang/react-native-web/screen/android-todos.png)
+![](https://rawgit.com/ZevenFang/react-native-web/screen/android-counter.png)
+### iOS
+![](https://rawgit.com/ZevenFang/react-native-web/screen/ios-todos.png)
+![](https://rawgit.com/ZevenFang/react-native-web/screen/ios-counter.png)
+
+
+[dva]: https://github.com/dvajs/dva
+[antd-mobile]: https://mobile.ant.design/docs/react/introduce-cn
+[中文文档]: https://github.com/ZevenFang/react-native-web/blob/master/README_CN.md
