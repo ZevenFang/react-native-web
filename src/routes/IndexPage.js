@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Drawer, NavBar, Icon } from 'antd-mobile';
-import { Route, Link, routerRedux } from 'dva/router';
+import { Route, routerRedux } from 'dva/router';
 import dynamic from 'dva/dynamic';
 import { connect } from 'react-redux';
 import styles from './IndexPage.less';
@@ -36,8 +36,8 @@ export default class IndexPage extends React.Component {
     const { app } = this.props;
     const sidebar = (
       <List>
-        <List.Item onClick={() => this.onNavigate('/', 'Todos')}><Link to="/">Todos</Link></List.Item>
-        <List.Item onClick={() => this.onNavigate('/counter', 'Counter')}><Link to="/counter">Counter</Link></List.Item>
+        <List.Item onClick={() => this.onNavigate('/', 'Todos')}>Todos</List.Item>
+        <List.Item onClick={() => this.onNavigate('/counter', 'Counter')}>Counter</List.Item>
       </List>);
     return (
       <div>
